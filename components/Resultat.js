@@ -7,7 +7,6 @@ export default class Resultat extends React.Component {
 
   fetchWeather() {
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=50e6f5f018dc678e46dafddd26447c9c`)
-    // axios.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${this.state.city}'&mode=json&units=metric&cnt=10&APPID=94c6cf0868fa5cb930a5e2d71baf0dbf`)
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -20,21 +19,11 @@ export default class Resultat extends React.Component {
       })
   }
   static navigationOptions = ({navigation}) => {
-
-    /*    if (navigation.state.params.favoris == null){
-         return {
-            title: `${navigation.state.params.text}`
-          }
-        } else {
-          console.log(this.state.name);
-          return {
-            title: `${navigation.state.params.favoris}`
-          }
-        }*/
       return {
         title : navigation.state.params.text
       }
 }
+
 constructor(props) {
     super(props)
     this.state = {
@@ -64,7 +53,8 @@ weathericon() {
 }
 
   favoris(){
-    this.props.navigation.navigate('About')
+    console.log(this.state.city)
+    this.props.navigation.navigate('About', {city: this.state.city})
   }
 
   render(){
@@ -93,7 +83,6 @@ weathericon() {
     }
   }
 }
-
 
 const style = StyleSheet.create({
   name:{

@@ -16,10 +16,6 @@ class Home extends React.Component {
     }
   }
 
-/*  setCity(city) {
-    this.setState.city
-  }*/
-
   submit() {
     this.props.navigation.navigate('Result', {text: this.state.text})
   }
@@ -33,7 +29,6 @@ class Home extends React.Component {
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
         />
-
         <Button onPress={() => this.submit()} title="Go"/>
       </View>
     );
@@ -49,7 +44,6 @@ export default StackNavigator({
     screen: Resultat,
   },
 })
-
 
 const style = StyleSheet.create({
   textinput: {
